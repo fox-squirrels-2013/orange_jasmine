@@ -3,32 +3,37 @@ FRUIT_BEARING_AGE = 4;
 MAX_AGE = 12;
 
 var createTree = function(){
-  var eert = {
+  var tree = {
     age: 0,
     height: 0,
     orangeCount: 0,
     isAlive: true,
     grow: function(){
-      eert.age += 1;
-      eert.height += 10;
-      if(eert.age >= FRUIT_BEARING_AGE){
-        eert.orangeCount += Math.floor((Math.random()*10)+1);
-      }
-      if(eert.age > MAX_AGE){
-        eert.isAlive = false;
-      }
+      tree.age += 1;
+      tree.height += 10;
+      tree.bearFruit();
+      tree.dieEventually();
     },
     dropOrange: function(){
-      orange = createOrange();
-      return orange;
+      return createOrange();
+    },
+    bearFruit: function(){
+      if(tree.age >= FRUIT_BEARING_AGE){ tree.orangeCount += randomInt(10); }
+    },
+    dieEventually: function(){
+      if(tree.age > MAX_AGE) { tree.isAlive = false; }
     }
   };
-  return eert;
+  return tree;
 };
 
 var createOrange = function(){
   var fruit = {
-    diameter: Math.floor((Math.random()*5)+1)
+    diameter: randomInt(5)
   };
   return fruit;
+};
+
+var randomInt = function(ceiling){
+  return Math.floor((Math.random()*ceiling)+1);
 };
