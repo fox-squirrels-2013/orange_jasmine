@@ -19,13 +19,16 @@ var createTree = function(){
       }
     },
     dropOrange: function(){
-      return 'orange';
-    },
-    createOrange: function(){
-      var fruit = {
-
-      };
+      orange = createOrange();
+      return orange;
     }
   };
   return eert;
+};
+
+var createOrange = function(){
+  var fruit = {
+    diameter: Math.floor((Math.random()*5)+1)
+  };
+  return fruit;
 };
