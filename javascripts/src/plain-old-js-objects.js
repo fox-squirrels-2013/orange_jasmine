@@ -30,12 +30,8 @@ function createTree() {
 }
 
 function createOrange() {
-  var orange = createTree()
-  // tree = {
-  //   diameter: Math.floor(Math.random()*10 + 1)
-  // }
-  // return tree
-  // orange.diameter = function() {return (Math.floor(Math.random()*10 + 1))}
-
+  var orange = {
+    diameter: Math.floor(Math.random() * 10 + 1)
+  }
   return orange
 }

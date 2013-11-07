@@ -79,7 +79,7 @@ describe ("createOrange", function() {
     expect(createOrange()).toBeDefined();
   });
 
-  xit("should return an orange with a random diameter > 0", function() {
+  it("should return an orange with a random diameter > 0", function() {
     var orange = createOrange();
     expect(orange.diameter).toBeGreaterThan(0);
   });
