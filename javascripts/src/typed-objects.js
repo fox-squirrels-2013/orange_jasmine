@@ -11,11 +11,17 @@ function Tree() {
 }
 
 Tree.prototype.grow = function() {
+  if(!this.isAlive)
+    return
+
   this.age += 1 
   this.height += 10
   if (this.age >= FRUIT_BEARING_AGE) {
-    this.orangeCount += Math.floor((Math.random() * 10) + 1)
-    this.oranges.push(new Orange())
+    numOfOranges = Math.floor((Math.random() * 10) + 1)
+    this.orangeCount += numOfOranges
+    for ( var i = 0; i < numOfOranges; i++ ) {
+      this.oranges.push(new Orange())
+    }
   }
   if (this.age > MAX_AGE) {
     this.isAlive = false
@@ -23,6 +29,9 @@ Tree.prototype.grow = function() {
 }
 
 Tree.prototype.dropOrange = function() {
+  if(this.orangeCount > 0)
+    --this.orangeCount
+
   return this.oranges.pop()
 }
 
